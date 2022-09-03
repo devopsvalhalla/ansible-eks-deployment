@@ -102,9 +102,13 @@ def main():
         supports_check_mode=False,
     )
 
+    changed = False
+
     validateClusterName()
     validateCIDR()
     validateVersion()
+
+    module.exit_json(changed=changed, stdout=out, stderr=err, command=tf)
 
 
 if __name__ == '__main__':
